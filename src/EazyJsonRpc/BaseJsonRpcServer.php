@@ -241,7 +241,7 @@
                         break;
                     case 'object':
                         foreach ( $this->reflectionMethods[$fullMethod]->getParameters() as $param ) {
-                            if ( !$param->isDefaultValueAvailable() && !array_key_exists( $param->getName(), $params ) ) {
+                            if ( !$param->isDefaultValueAvailable() && !property_exists( $params, $param->getName() ) ) {
                                 $error = self::InvalidParams;
                                 $data  = $param->getName() . ' not found';
 
